@@ -4,7 +4,7 @@ Arduino IDE replacement (better comfort/ergonomics) using VSCodium. A minimal bl
 
 **Dependencies:**
 
-1. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/mingw-w64/) (download the x86_64-posix-seh .7z archive)
+1. [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/) (download the x86_64-posix-seh .7z archive)
 2. [VSCodium](https://github.com/VSCodium/vscodium)
 3. [Serial Monitor Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-serial-monitor)
 4. [Arduino Extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino)
