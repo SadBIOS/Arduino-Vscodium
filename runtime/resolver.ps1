@@ -149,7 +149,6 @@ for ($i = 0; $i -lt $libcount; $i++) {
     if ($index -match '^\d+$') {
         $index = [int]$index
         if ($index -ge 0 -and $index -lt $tmprx.Length) {
-            # Check if the index is already in the queue
             if ($lbdix.Contains($index)) {
                 Write-Host "Index [$index]" -NoNewline
                 Write-Host " - $($tmprx[$index])"  -NoNewline -ForegroundColor Cyan
