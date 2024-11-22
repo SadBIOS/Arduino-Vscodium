@@ -186,7 +186,7 @@ if ($userInput -ieq "y") {
     for ($i = 0; $i -lt $lbdix.Length; $i++) {
         Write-Progress -PercentComplete $i -Status "Installing $($tmprx[$($lbdix[$i])])" -Activity "Invoking arduino-cli library installer"
         arduino-cli lib install "$($tmprx[$($lbdix[$i])])"
-        Start-Sleep -Seconds 1
+        Start-Sleep -Milliseconds 250
     }
     Write-Host "`nInstallation completed!"
 } elseif ($userInput -ieq "n") {
