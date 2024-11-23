@@ -1,4 +1,5 @@
-$libs = grep '#include' .\Arduino.ino | awk -F'[<>]' '{print $2}' | sed 's/_/ /g; s/.h//g'
+$libs = @()
+$libs += grep '#include' .\Arduino.ino | awk -F'[<>]' '{print $2}' | sed 's/_/ /g; s/.h//g'
 $arrlen = $libs.Length
 $libcount = 0
 $bps = 0
@@ -149,6 +150,7 @@ for ($i = 0; $i -lt $libcount; $i++) {
     if ($index -match '^\d+$') {
         $index = [int]$index
         if ($index -ge 0 -and $index -lt $tmprx.Length) {
+            # Check if the index is already in the queue
             if ($lbdix.Contains($index)) {
                 Write-Host "Index [$index]" -NoNewline
                 Write-Host " - $($tmprx[$index])"  -NoNewline -ForegroundColor Cyan
@@ -179,17 +181,21 @@ $lbdix | ForEach-Object {
     Write-Host "$ctr. $($tpxr) [$($_)]"
     $ctr++
 }
-$userInput = Read-Host "Do you want to start the installation? (Y/N)"
-if ($userInput -ieq "y") {
-    Write-Host "Starting installation..."
-    for ($i = 0; $i -lt $lbdix.Length; $i++) {
-        Write-Progress -PercentComplete $i -Status "Installing $($tmprx[$($lbdix[$i])])" -Activity "Invoking arduino-cli library installer"
-        arduino-cli lib install "$($tmprx[$($lbdix[$i])])"
-        Start-Sleep -Milliseconds 250
+if ($bps -gt 0) {
+    $userInput = Read-Host "Do you want to start the installation? (Y/N)"
+    if ($userInput -ieq "y") {
+        Write-Host "Starting installation..."
+        for ($i = 0; $i -lt $lbdix.Length; $i++) {
+            Write-Progress -PercentComplete $i -Status "Installing $($tmprx[$($lbdix[$i])])" -Activity "Invoking arduino-cli library installer"
+            arduino-cli lib install "$($tmprx[$($lbdix[$i])])"
+            Start-Sleep -Seconds 1
+        }
+        Write-Host "`nInstallation completed!"
     }
-    Write-Host "`nInstallation completed!"
-} elseif ($userInput -ieq "n") {
-    Write-Host "Quitting session..."
-} else {
-    Write-Host "Invalid input. Please enter 'Y' or 'N'."
+    elseif ($userInput -ieq "n") {
+        Write-Host "Quitting session..."
+    }
+    else {
+        Write-Host "Invalid input. Please enter 'Y' or 'N'."
+    }
 }
