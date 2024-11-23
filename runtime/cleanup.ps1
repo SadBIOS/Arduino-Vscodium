@@ -1,3 +1,10 @@
+if (-not (Test-Path -Path '.\firmware')) {
+    Write-Host 'Creating Firmware Folder' -ForegroundColor Cyan
+    New-Item -Path '.\firmware' -ItemType Directory
+}
+else {
+    Write-Host 'Firmware folder exists. No action required' -ForegroundColor DarkMagenta
+}
 $nopass = {
     $foundFiles = $false
     foreach ($ext in $extensions) {
@@ -13,6 +20,13 @@ $nopass = {
         exit
     }
 }
+$massmv = {
+    Get-ChildItem -Path . -Filter '*.hex' | Move-Item -Destination '.\firmware'
+    Get-ChildItem -Path . -Filter '*.bin' | Move-Item -Destination '.\firmware'
+}
+$flush = {
+    Get-ChildItem -Path '.\firmware\' | Remove-Item
+}
 function nuke {
     Write-Warning "Removing all firmware, linkers, eeprom data and debugger map files"
     $root = Get-Location
@@ -23,7 +37,7 @@ function nuke {
 function keep_hex {
     Write-Warning "Removing all files except intel hex"
     $root = Get-Location
-    $extensions = @('*.eep', '*.bin', '*.elf', '*.map')
+    $extensions = @('*.eep', '*.bin', '*.elf', '*.map', '*.with_bootloader.hex')
     &$nopass
 }
 
@@ -38,13 +52,18 @@ $trigger = $args[0]
 
 switch ($trigger) {
     "nuke" {
+        &$flush
         nuke
     }
     "khx" {
+        &$flush
         keep_hex
+        &$massmv
     }
     "kbin" {
+        &$flush
         keep_bin
+        &$massmv
     }
     default {
         Write-Warning "No function specified, doing nothing :)"
