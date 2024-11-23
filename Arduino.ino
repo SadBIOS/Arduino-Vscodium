@@ -2,12 +2,13 @@
 #include <Adafruit_ICM20X.h>
 #include <Adafruit_ILI9341.h>
 #include <boogaloo.h> //remove kindly before compiling used to test the resolver
-void setup() {
-  pinMode(13, OUTPUT);
+void setup()
+{
+  Serial.begin(9600);
 }
-void loop() {
-  digitalWrite(13, HIGH);
-  delay(100);
-  digitalWrite(13, LOW);
-  delay(100);
+
+void loop()
+{
+  Serial.println("are momin :V");
+  delay(1000);
 }
