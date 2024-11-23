@@ -1,10 +1,12 @@
-mcu = m328p			# only applicable for the Arduino AVR platform
-OEM = nano			# board name also applicable for Arduino AVR platform
-brd = esp32:esp32:esp32		# FQBN (fully qualified board name)
+mcu = m328p				# only applicable for the Arduino AVR platform
+OEM = nano				# board name also applicable for Arduino AVR platform
+brd = esp32:esp32:esp32s3		# FQBN (fully qualified board name)
 code = Arduino.ino
-firmware = $(code).bin		# firmware filename (without extension)
-port = COM11			# check connected boards via device manager or "make avail" !CANNOT BE BLANK!
-cuf = kbin			# cleanup function (refer to the readme file) !CANNOT BE BLANK!
+firmware = $(code).bin			# firmware filename (without extension)
+port = COM12				# check connected boards via device manager or "make avail" !CANNOT BE BLANK!
+cuf = kbin				# cleanup function (refer to the readme file) !CANNOT BE BLANK!
+cdc = :CDCOnBoot=cdc			# required for esp32s3 communication device class (virtual serial over USB)
+dev = $(brd):$(cdc)			# remove :$(cdc) for most cases
 
 default:
 	powershell -command ".\runtime\cleanup.ps1 nuke"
@@ -19,7 +21,7 @@ resolve:
 	powershell -command ".\runtime\resolver.ps1"
 
 flash:
-	arduino-cli upload -p $(port) --verbose --fqbn $(brd) --input-file .\firmware\$(firmware)
+	arduino-cli upload -p $(port) --verbose --fqbn $(dev) --input-file .\firmware\$(firmware)
 
 burn:
 	avrdude -c usbasp -p $(mcu) -P usb -U flash:w:./firmware/$(code).hex:i -vvv -B 1
