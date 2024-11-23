@@ -5,7 +5,7 @@ code = Arduino.ino
 firmware = $(code).bin			# firmware filename (without extension)
 port = COM12				# check connected boards via device manager or "make avail" !CANNOT BE BLANK!
 cuf = kbin				# cleanup function (refer to the readme file) !CANNOT BE BLANK!
-cdc = :CDCOnBoot=cdc			# required for esp32s3 communication device class (virtual serial over USB)
+cdc = CDCOnBoot=cdc			# required for esp32s3 communication device class (virtual serial over USB)
 dev = $(brd):$(cdc)			# remove :$(cdc) for most cases
 
 default:
