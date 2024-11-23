@@ -30,6 +30,7 @@ $flush = {
 function nuke {
     Write-Warning "Removing all firmware, linkers, eeprom data and debugger map files"
     $root = Get-Location
+    $root = $root.ToString() + '\firmware'
     $extensions = @('*.eep', '*.hex', '*.bin', '*.elf', '*.map')
     &$nopass
 }
