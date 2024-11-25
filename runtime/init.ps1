@@ -18,7 +18,8 @@ switch ($trigger) {
             "core install arduino:avr",
             "core install esp8266:esp8266 --additional-urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json",
             "core install esp32:esp32 --additional-urls=https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json",
-            "core install Seeeduino:samd --additional-urls=https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json"
+            "core install Seeeduino:samd --additional-urls=https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json",
+            "core install MiniCore:avr --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json"
         )
         foreach ($command in $commands) {
             try {
@@ -40,7 +41,7 @@ switch ($trigger) {
         }
     }
     "corestat"   {
-        Write-Host "`n`nMicroship AVR Platform" -ForegroundColor Cyan
+        Write-Host "`n`nMicrochip AVR Platform" -ForegroundColor Cyan
             arduino-cli board listall | grep 'avr' | sort
         Write-Host "`n`nEspressif ESP32 Platform" -ForegroundColor Cyan
             arduino-cli board listall | grep 'esp32' | sort
@@ -48,6 +49,8 @@ switch ($trigger) {
             arduino-cli board listall | grep 'esp8266' | sort
         Write-Host "`n`nMicrochip SAMD Platform" -ForegroundColor Cyan
             arduino-cli board listall | grep 'samd' | sort
+        Write-Host "`n`nMiniCore AVR Platform" -ForegroundColor Cyan
+            arduino-cli board listall | grep 'MiniCore*' | sort
             Write-Host "`n`n"
         Write-Host "`n`nCore Summary" -ForegroundColor Cyan
             arduino-cli core list | sort
