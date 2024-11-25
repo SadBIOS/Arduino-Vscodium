@@ -23,6 +23,7 @@ $nopass = {
 $massmv = {
     Get-ChildItem -Path . -Filter '*.hex' | Move-Item -Destination '.\firmware'
     Get-ChildItem -Path . -Filter '*.bin' | Move-Item -Destination '.\firmware'
+    Get-ChildItem -Path . -Filter '*.eep' | Move-Item -Destination '.\firmware'
 }
 $flush = {
     Get-ChildItem -Path '.\firmware\' | Remove-Item
@@ -31,14 +32,14 @@ function nuke {
     Write-Warning "Removing all firmware, linkers, eeprom data and debugger map files"
     $root = Get-Location
     $root = $root.ToString() + '\firmware'
-    $extensions = @('*.eep', '*.hex', '*.bin', '*.elf', '*.map')
-    &$nopass
+    $extensions = @('*.eep', '*.hex', '*.bin', '*.elf', '*.map', '*.lst')
+    &$nopass 
 }
 
 function keep_hex {
     Write-Warning "Removing all files except intel hex"
     $root = Get-Location
-    $extensions = @('*.eep', '*.bin', '*.elf', '*.map', '*.with_bootloader.hex')
+    $extensions = @('*.bin', '*.elf', '*.map', '*.with_bootloader.bin', '*.lst')
     &$nopass
 }
 
@@ -53,7 +54,6 @@ $trigger = $args[0]
 
 switch ($trigger) {
     "nuke" {
-        &$flush
         nuke
     }
     "khx" {
