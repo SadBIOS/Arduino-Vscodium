@@ -42,10 +42,11 @@ To set up the environment, run the following command in PowerShell:
 Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C:> make core``` for all FQBN)_
 
 
-- port = Use the ```PS C:> make avail``` to see the ports of connected devices *(if any)*
-- cuf = ***kbin*** for binary and ***khx*** to keep intel hex firmware *(except avr boards most all boards use the binary file format)*
-- AVR section just change mcu to 328p or 328pb *(if you change to the PB variant change the brd (fqbn) to Micro:avr:328)*
-- dev = keep as is [ ```$(brd):$(cdc)``` for esp32-s3 as it has some communication device class boogaloo]
+- _port_ = Use the ```PS C:> make avail``` to see the ports of connected devices *(if any)*
+- _cuf_ = ***kbin*** for binary and ***khx*** to keep intel hex firmware *(except avr boards most all boards use the binary file format)*
+
+In the AVR section just change the mcu variable to 328p or 328pb *(if you change to the PB variant change the brd (fqbn) to Micro:avr:328)*
+- _dev_ = keep as is [ ```$(brd):$(cdc)``` for esp32-s3 as it has some communication device class boogaloo]
 
 💡ProTip: *It is not recommended to change the fuse bits if you don't know what you're doing and i don't know what i was doing when i discovered this information.*
 
@@ -76,7 +77,7 @@ Arduino Mega (ATmega2560 or _m2560_) and Arduino Micro (ATmega32U4 or _m32u4_) f
 ---
 
 ### General Usage
-Write code in the Arduino.ino (file location !!CANNOT!! be changed), put libraries in a separate folder (same directory as the .ino file)
+Write code in the Arduino.ino (file location **!!CANNOT!!** be changed), put libraries in a separate folder (same directory as the .ino file)
 
 ---
 
