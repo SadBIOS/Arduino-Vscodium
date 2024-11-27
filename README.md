@@ -47,7 +47,7 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 - AVR section just change mcu to 328p or 328pb *(if you change to the PB variant change the brd (fqbn) to Micro:avr:328)*
 - dev = keep as is [ ```$(brd):$(cdc)``` for esp32-s3 as it has some communication device class boogaloo]
 
-💡ProTip: *Not recommended to change the fuse bits if you don't know what you're doing and i don't know what i was doing when i discovered this information.*
+💡ProTip: *It is not recommended to change the fuse bits if you don't know what you're doing and i don't know what i was doing when i discovered this information.*
 
 ---
 
