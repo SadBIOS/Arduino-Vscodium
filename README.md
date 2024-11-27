@@ -45,7 +45,7 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 - _port_ = Use the ```PS C:> make avail``` to see the ports of connected devices *(if any)*
 - _cuf_ = ***kbin*** for binary and ***khx*** to keep intel hex firmware *(except avr boards most all boards use the binary file format)*
 
-In the AVR section just change the mcu variable to 328p or 328pb *(if you change to the PB variant change the brd (fqbn) to Micro:avr:328)*
+In the AVR section just change the mcu variable to 328p or 328pb *(if you change to the PB variant change the brd FQBN to Micro:avr:328)*
 - _dev_ = keep as is [ ```$(brd):$(cdc)``` for esp32-s3 as it has some communication device class boogaloo]
 
 💡ProTip: *It is not recommended to change the fuse bits if you don't know what you're doing and i don't know what i was doing when i discovered this information.*
