@@ -53,6 +53,7 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 
 ### Post Setup Run the Following Commands
 ```> PS C:> make```
+
 ```> PS C:> make flash```
 
 ---
