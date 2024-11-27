@@ -63,7 +63,7 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 - _clean_ = wipe all binary
 - _erase_ = wipe the chip *(AVR only)*
 - _burn_ = flash option for AVR only *(see the burn function comments)*
-- _boot_ = burn bootloader AVR only *(depends on the chip but m328, m328p and m328pb are the same)* [Atmega2560 m2560 support, fuse setting and others]
+- _boot_ = burn bootloader AVR only *(depends on the chip but m328, m328p and m328pb are the same)* <span style="color: pink;">[Atmega2560 m2560 support, fuse setting and others]</span>
 - _check_ = read lock bits
 - _core_ = check available cores
 - _lib_ = check installed libraries
