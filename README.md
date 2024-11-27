@@ -63,13 +63,15 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 - _clean_ = wipe all binary
 - _erase_ = wipe the chip *(AVR only)*
 - _burn_ = flash option for AVR only *(see the burn function comments)*
-- _boot_ = burn bootloader AVR only *(depends on the chip but m328, m328p and m328pb are the same)* <span style="color: pink;">[Atmega2560 m2560 support, fuse setting and others]</span>
+- _boot_ = burn bootloader AVR only *(depends on the chip but m328, m328p and m328pb are the same)*
 - _check_ = read lock bits
 - _core_ = check available cores
 - _lib_ = check installed libraries
 - _avail_ = check connected boards
 - _eval_ = show AVR chip details
 - _details_ = read board details
+
+Arduino Mega (ATmega2560 or _m2560_) and Arduino Micro (ATmega32U4 or _m32u4_) fuse settings will be uploaded (I don't have any other ones so I didn't bother).
 
 ---
 
