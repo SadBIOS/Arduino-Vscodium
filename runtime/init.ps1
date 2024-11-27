@@ -17,7 +17,7 @@ switch ($trigger) {
             "lib update-index",
             "core install arduino:avr",
             "core install esp8266:esp8266 --additional-urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json",
-            "core install esp32:esp32 --additional-urls=https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json",
+            "core install esp32:esp32 --additional-urls=https://espressif.github.io/arduino-esp32/package_esp32_index.json",
             "core install Seeeduino:samd --additional-urls=https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json",
             "core install MiniCore:avr --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json"
         )
