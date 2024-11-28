@@ -72,7 +72,7 @@ In the AVR section just change the mcu variable to 328p or 328pb *(if you change
 - _eval_ = show AVR chip details
 - _details_ = read board details
 
-Arduino Mega (ATmega2560 or _m2560_) and Arduino Micro (ATmega32U4 or _m32u4_) fuse settings will be uploaded (I don't have any other ones so I didn't bother).
+Arduino Mega (ATmega2560 or _m2560_) and Arduino Micro (ATmega32U4 or _m32u4_) fuse settings will be uploaded (I don't have any other ones so I didn't bother)
 
 ---
 
