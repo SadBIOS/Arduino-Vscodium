@@ -36,7 +36,7 @@ burn:	# only one can be uncommented at a time
 #	avrdude -c $(pgmr) -p $(mcu) -P usb -U flash:w:./firmware/$(code).with_bootloader.hex:i -vvv -B $(btclk) -b $(brt)
 # keep the previous line commented and is for normal use (given bootloader exists)
 #	arduino-cli upload -p $(port) --verbose --fqbn $(dev) --input-file .\firmware\$(code).with_bootloader.hex
-# the next like is the the most stupid line in existance (this is for the native upload keep commented unless you know the chip)
+# the next command is the the most stupid line in existance (native upload for m328pb)
 	arduino-cli upload -p $(port) --verbose --fqbn $(dev) --input-file .\firmware\$(code).eep
 
 boot:	# usbasp required (must compile a blank sketch for that board first)
