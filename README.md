@@ -82,5 +82,4 @@ Write code in the Arduino.ino (file location **!!CANNOT!!** be changed), put lib
 ---
 
 ### Warnings ⛑️
-*This tool might be useful and fun but if you plan to use this in anything remotely important be
-prepared to loose your job, family and sanity. Ciao* 🙃
+*This tool might be useful and fun but if you plan to use this for anything remotely important be prepared to loose your job, family and sanity. Ciao* 🙃
