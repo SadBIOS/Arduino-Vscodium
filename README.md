@@ -32,7 +32,8 @@ To set up the environment, run the following command in PowerShell:
 ### Example
 
 **Change the Makefile** ⬇️
- _brd_ = board name *(FQBN fully qualified board name).* A few options are given below as I work on these boards.
+
+_brd_ = board name *(FQBN fully qualified board name).* A few options are given below as I work on these boards.
 - ESP32 = ```esp32:esp32:esp32```
 - ESP32-S3 = ```esp32:esp32:esp32s3```
 - Seeed Studio Xiao (Microchip SAMD21) = ```Seeeduino:samd:seeed_XIAO_m0```
