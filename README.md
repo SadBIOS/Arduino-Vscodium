@@ -38,6 +38,7 @@ _brd_ = board name *(FQBN fully qualified board name).* A few options are given 
 - ESP32-S3 = ```esp32:esp32:esp32s3```
 - Seeed Studio Xiao (Microchip SAMD21) = ```Seeeduino:samd:seeed_XIAO_m0```
 - ESP8266 (LoLin Nodemcu V3) = ```esp8266:esp8266:nodemcuv2```
+- Arduino (ATmega328PB) = ```MiniCore:avr:328```
 - Arduino (AVR Core) = ```arduiono:avr:X```
 
 Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C:> make core``` for all FQBN)_
@@ -46,7 +47,7 @@ Here, **X** is the placeholder for board/chip name uno,nano,mega _(refer ```PS C
 - _port_ = Use the ```PS C:> make avail``` to see the ports of connected devices *(if any)*
 - _cuf_ = ***kbin*** for binary and ***khx*** to keep intel hex firmware *(except avr boards most all boards use the binary file format)*
 
-In the AVR section just change the mcu variable to 328p or 328pb *(if you change to the PB variant change the brd FQBN to Micro:avr:328)*
+In the AVR section just change the mcu variable to 328p or 328pb *(if you change to the PB variant change the brd FQBN to MiniCore:avr:328)*
 - _dev_ = keep as is [ ```$(brd):$(cdc)``` for esp32-s3 as it has some communication device class boogaloo]
 
 💡ProTip: *It is not recommended to change the fuse bits if you don't know what you're doing and I don't know what I was doing when I discovered this information.*
