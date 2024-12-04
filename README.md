@@ -16,6 +16,7 @@ This is useful to people who dislike the internet, themselves, and most importan
 - [VSCodium](https://github.com/VSCodium/vscodium)
 - [Arduino Community Extension](https://marketplace.visualstudio.com/items?itemName=vscode-arduino.vscode-arduino-community)
 - [Serial Monitor Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-serial-monitor)
+- [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/) (download the x86_64-posix-seh .7z archive)
 
 ---
 
